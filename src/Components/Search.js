@@ -1,20 +1,10 @@
 import React, {Component} from 'react';
-export default class Search extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-        searchText: ''
-    };
-  }
-
-  onSearchChange = e => {
-    this.setState({searchText: e.target.value });
-  }
+ export default class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.query.value);
+    let path = `/search/${this.query.value}`;
+    this.props.history.push(path);
     e.currentTarget.reset();
   }
 
@@ -22,7 +12,6 @@ export default class Search extends Component {
     return(
       <form className="search-form" onSubmit={this.handleSubmit}>
         <input type="search"
-          onChange={this.onSearchChange}
           name="search"
           ref={(input) => this.query = input}
           placeholder="Search"
@@ -36,5 +25,4 @@ export default class Search extends Component {
       </form>
     );
   }
-
 }

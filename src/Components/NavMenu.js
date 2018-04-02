@@ -1,12 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const NavMenu = props =>
-  <nav className="main-nav">
-    <ul>
-      <li><a href='/search/guitars'>Guitars</a></li>
-      <li><a href='/search/family'>Family</a></li>
-      <li><a href='/search/code'>Code</a></li>
-    </ul>
-  </nav>
+const NavMenu = () => {
+  return (
+    <nav className="main-nav">
+      <ul>
+        <li><NavLink to='/search/Guitars'>Guitars</NavLink></li>
+        <li><NavLink to='/search/Family'>Family</NavLink></li>
+        <li><NavLink to='/search/Code'>Code</NavLink></li>
+      </ul>
+    </nav>
+  );
+}
 
 export default NavMenu;
